@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.1.0.js"></script>
+		<script src="js/jquery.form.min.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	</head>
+	<body>
+		<div class="bloglist">
+			<h3>123</h3>
+		</div>
+		<div class="blog">
+			<form>
+				<input type="text" name="comment">
+				<input type="submit" />
+			</form>
+		</div>
+		<div class="bloglist">
+			<h3>123</h3>
+		</div>
+		<div class="blog">
+			<form >
+				<input type="text" name="comment" >
+				<input type="submit" />
+			</form>
+		</div>
+	</body>
+		<script>
+//		$(".blog").validate({
+//		submitHandler: function(form) {
+//			$(form).ajaxSubmit({
+//				url: "addComment.php",
+//				type: "POST",
+//				data:{
+//					title:123,
+//					user:123,
+//					comment:$(this).find("input[name=comment]").html()
+//				},
+//				beforeSubmit: function() {
+//					alert("数据交互中，请稍微等候");
+//				},
+//				success: function(responseText, statusText) {
+//					if(responseText) {
+//						alert("注册成功")
+//					}
+//				}
+//			})
+//		},
+//		rules: {
+//			comment: {
+//				required: true,
+//			},
+//		},
+//		messages: {
+//			comment: {
+//				required: "内容不得为空",
+//			},
+//		}
+//	});
+	$.each($("form"), function(index,value) {
+		$(this).validate({
+			submitHandler: function(form) {
+			$(form).ajaxSubmit({
+				url: "addComment.php",
+				type: "POST",
+				data:{
+					title:123,
+					user:123,
+					comment:$(this).find("input[name=comment]").html()
+				},
+				beforeSubmit: function() {
+					alert("数据交互中，请稍微等候");
+				},
+				success: function(responseText, statusText) {
+					if(responseText) {
+						alert("注册成功")
+					}
+				}
+			})
+		},
+		rules: {
+			comment: {
+				required: true,
+			},
+		},
+		messages: {
+			comment: {
+				required: "内容不得为空",
+			},
+		}
+		})
+	});
+</script>
+</html>
